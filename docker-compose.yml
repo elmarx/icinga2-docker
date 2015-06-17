@@ -1,0 +1,15 @@
+core:
+  build: icinga2
+
+web:
+  build: icingaweb2
+  links:
+    - db
+    - core
+  ports:
+    - "8080:80"
+
+db:
+  image: mariadb
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret

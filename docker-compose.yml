@@ -1,15 +1,28 @@
 core:
   build: icinga2
+  links:
+    - mysql
+  environment:
+    - MYSQL_USER=icinga
+    - MYSQL_PASSWORD=icinga
+    - MYSQL_DATABASE=icinga
 
 web:
   build: icingaweb2
   links:
-    - db
+    - mysql
     - core
   ports:
     - "8080:80"
+  environment:
+    - MYSQL_USER=icinga
+    - MYSQL_PASSWORD=icinga
+    - MYSQL_DATABASE=icinga
 
-db:
+mysql:
   image: mariadb
   environment:
     - MYSQL_ROOT_PASSWORD=secret
+    - MYSQL_USER=icinga
+    - MYSQL_PASSWORD=icinga
+    - MYSQL_DATABASE=icinga

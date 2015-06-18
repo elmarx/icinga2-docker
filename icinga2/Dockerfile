@@ -11,7 +11,9 @@ RUN rpm --import http://packages.icinga.org/icinga.key && \
     yum clean all && \
     /usr/lib/icinga2/prepare-dirs /etc/sysconfig/icinga2 # prepare icinga2 directories, as defined in systemd-unit file
 
+ADD entrypoint.sh /usr/local/sbin/entrypoint.sh
 
+ENTRYPOINT ["/usr/local/sbin/entrypoint.sh"]
 CMD ["/usr/sbin/icinga2", "daemon"]
 
 # volumes for configfiles and plugins

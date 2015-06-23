@@ -1,5 +1,5 @@
 core:
-  build: icinga2
+  build: core
   links:
     - mysql
   environment:
@@ -10,7 +10,7 @@ core:
     - "/srv/docker/icinga2/etc/icinga2:/etc/icinga2"
 
 web:
-  build: icingaweb2
+  build: web
   links:
     - mysql
     - core

@@ -29,14 +29,14 @@ The icinga images are based on centos, as that's what icinga-developers seem to 
 
 Runs the icinga2 daemon executing checks etc.
 
-## icingaweb2
+## icinga2 web
 
 Webfrontend built using php. Webserver used in this image is *apache* with *mod_php*.
-(Yeah, it's not cool as *nginx*, but runs a single process).
+(Yeah, it's not as cool as *nginx*, but runs a single process).
 
 ## Database
 
-Currently *mariadb*. Again this seems to be icingas preferred choice. Maybe later I'll switch this to postgresql.
+Currently *mariadb*. Again this seems to be icinga's preferred choice. Maybe later I'll switch this to postgresql.
 
 [docker-compose]: https://docs.docker.com/compose/
 [docker-best-pratice-process]: https://docs.docker.com/articles/dockerfile_best-practices/#run-only-one-process-per-container

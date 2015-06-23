@@ -6,6 +6,8 @@ core:
     - MYSQL_USER=icinga
     - MYSQL_PASSWORD=icinga
     - MYSQL_DATABASE=icinga
+  volumes:
+    - "/srv/docker/icinga2/etc/icinga2:/etc/icinga2"
 
 web:
   build: icingaweb2
@@ -21,6 +23,8 @@ web:
 
 mysql:
   image: mariadb
+  ports:
+    - "3306:3306"
   environment:
     - MYSQL_ROOT_PASSWORD=secret
     - MYSQL_USER=icinga

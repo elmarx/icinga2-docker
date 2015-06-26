@@ -13,6 +13,7 @@ RUN rpm --import http://packages.icinga.org/icinga.key && \
     yum -y install epel-release && \
     yum -y install icinga2 icinga2-ido-mysql mariadb nagios-plugins-all && \
     yum clean all && \
+    ln -sr /etc/icinga2/features-available/command.conf /etc/icinga2/features-enabled/ && \
     /usr/lib/icinga2/prepare-dirs /etc/sysconfig/icinga2 && \
     cp -a /etc/icinga2 /etc/icinga2.orig
 
@@ -21,5 +22,5 @@ ADD scripts /usr/local/
 ENTRYPOINT ["/usr/local/sbin/entrypoint.sh"]
 CMD ["/usr/sbin/icinga2", "daemon"]
 
-# volumes for configfiles; TODO: and plugins
-VOLUME ["/etc/icinga2"]
+# volumes for configfiles and external commands; TODO: and plugins
+VOLUME ["/etc/icinga2", "/var/run/icinga2/cmd"]

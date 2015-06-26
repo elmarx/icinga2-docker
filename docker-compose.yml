@@ -20,6 +20,8 @@ web:
     - MYSQL_USER=icinga
     - MYSQL_PASSWORD=icinga
     - MYSQL_DATABASE=icinga
+  volumes_from:
+    - core
 
 mysql:
   image: mariadb

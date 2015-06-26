@@ -12,6 +12,15 @@ orchestrate docker-containers (instead of some very long hand-crafted *docker ru
 
 Obviously, you'll need **docker** and **docker-compose**.
 
+## Building the image
+
+Also the images are available via docker registry, you may build them locally.
+For convinience ```make``` will call *docker build* with the required flags to create the images with the correct names locally.
+
+### Sidenote
+
+Yes, I know docker-compose can also generate images. But this way we can use the same *docker-compose.yml* file both for development and production.
+
 ## Usage
 
 You'll might want to adjust *docker-compose.yml* to your needs. Then simply run

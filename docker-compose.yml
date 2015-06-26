@@ -1,5 +1,5 @@
 core:
-  build: core
+  image: zauberpony/icinga2-core
   links:
     - mysql
   environment:
@@ -10,7 +10,7 @@ core:
     - "/srv/docker/icinga2/etc/icinga2:/etc/icinga2"
 
 web:
-  build: web
+  image: zauberpony/icinga2-web
   links:
     - mysql
     - core

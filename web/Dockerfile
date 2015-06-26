@@ -8,7 +8,8 @@ MAINTAINER Elmar Athmer <elmar@athmer.org>
 ADD http://packages.icinga.org/epel/ICINGA-release.repo /etc/yum.repos.d/
 RUN rpm --import http://packages.icinga.org/icinga.key && \
     yum -y install epel-release && \
-    yum -y install icingaweb2 icingacli httpd php-ZendFramework-Db-Adapter-Pdo-Mysql && \
+    yum -y install icingacli httpd php-ZendFramework-Db-Adapter-Pdo-Mysql && \
+    yum -y install --setopt=tsflags='' icingaweb2 \
     yum clean all && \
     icingacli setup config webserver apache \
       --document-root /usr/share/icingaweb2/public > \
